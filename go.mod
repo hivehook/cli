@@ -2,6 +2,8 @@ module github.com/hivehook/cli
 
 go 1.25.0
 
+toolchain go1.25.10
+
 require (
 	github.com/hivehook/sdk-go v0.1.1
 	github.com/spf13/cobra v1.8.1
