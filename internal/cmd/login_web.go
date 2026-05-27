@@ -64,6 +64,9 @@ func loginWeb(ctx context.Context) error {
 		}
 		switch poll.Status {
 		case "approved":
+			if poll.APIKey == "" {
+				return fmt.Errorf("approval succeeded but no key was returned; run 'hivehook login' again")
+			}
 			fmt.Fprintln(os.Stderr, " done.")
 			return persistLogin(ctx, poll.APIKey)
 		case "denied":
